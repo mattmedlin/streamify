@@ -16,7 +16,7 @@ const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
     const { name, artist, streams } = payload[0].payload;
     return (
-      <div className="bg-white p-2 border rounded shadow-sm">
+      <div className="bg-white dark:bg-gray-800 p-2 border dark:border-green-400 rounded shadow-sm">
         <p className="label">{`${name} by ${artist}`}</p>
         <p className="intro">{`Streams: ${streams}`}</p>
       </div>
@@ -36,7 +36,7 @@ const TopStreamedSongsChart = () => {
   }, []);
 
   return (
-    <div className="bg-white shadow-md rounded-lg p-4 flex items-center">
+    <div className="bg-white dark:bg-gray-800 shadow-md rounded-lg p-4 flex items-center">
       <ResponsiveContainer width="100%" height={400}>
         <BarChart data={data}>
           <XAxis

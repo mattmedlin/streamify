@@ -73,7 +73,7 @@ const StreamTable = () => {
           placeholder="Filter by Artist"
           value={filters.artist}
           onChange={handleFilterChange}
-          className="mr-2 p-2 border border-gray-300 rounded"
+          className="mr-2 p-2 focus:outline-none border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400"
         />
         <input
           type="text"
@@ -81,12 +81,12 @@ const StreamTable = () => {
           placeholder="Filter by Song Name"
           value={filters.songName}
           onChange={handleFilterChange}
-          className="p-2 border border-gray-300 rounded"
+          className="p-2 focus:outline-none border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400"
         />
       </div>
       <div className="overflow-x-auto">
-        <table className="min-w-full bg-white">
-          <thead className="bg-gray-800 text-white">
+        <table className="min-w-full bg-white dark:bg-gray-800">
+          <thead className="bg-gray-800 dark:bg-gray-700 text-white">
             <tr>
               <th
                 className="w-1/5 text-left py-3 px-4 uppercase font-semibold text-sm cursor-pointer"
@@ -127,7 +127,7 @@ const StreamTable = () => {
           </thead>
           <tbody>
             {filteredStreams.map((stream, index) => (
-              <tr key={index} className="text-gray-700">
+              <tr key={index} className="text-gray-700 dark:text-gray-300">
                 <td className="w-1/5 py-3 px-4">{stream.songName}</td>
                 <td className="w-1/5 py-3 px-4">{stream.artist}</td>
                 <td className="w-1/5 py-3 px-4">{stream.dateStreamed}</td>

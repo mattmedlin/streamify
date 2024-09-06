@@ -29,7 +29,7 @@ const RevenueDistributionChart = () => {
     if (active && payload && payload.length) {
       const { name, value } = payload[0];
       return (
-        <div className="bg-white p-2 border rounded shadow-sm">
+        <div className="bg-white p-2 dark:bg-gray-800 border dark:border-green-400 rounded shadow-sm">
           <p className="label">{`${name}: $${value}`}</p>
         </div>
       );
@@ -39,7 +39,7 @@ const RevenueDistributionChart = () => {
   };
 
   return (
-    <div className="bg-white shadow-md rounded-lg p-4 flex items-center">
+    <div className="bg-white dark:bg-gray-800 shadow-md rounded-lg p-4 flex items-center">
       <ResponsiveContainer width="100%" height={400}>
         <PieChart>
           <Pie

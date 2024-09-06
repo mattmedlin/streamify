@@ -17,7 +17,6 @@ const Dashboard = () => {
 
   return (
     <div className="p-6">
-      <h1 className="text-3xl font-bold mb-4">Streamify</h1>
       {/* Metrics */}
       <div className="flex flex-wrap -mx-2">
         <div className="w-full sm:w-1/2 lg:w-1/3 p-2">

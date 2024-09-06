@@ -2,7 +2,7 @@ import React from "react";
 
 const MetricCard = ({ title, value, icon }) => {
   return (
-    <div className="bg-white shadow-md rounded-lg p-4 flex items-center">
+    <div className="bg-white dark:bg-gray-800 shadow-md rounded-lg p-4 flex items-center">
       <div className="text-blue-500 mr-4">{icon}</div>
       <div>
         <h4 className="text-gray-500 text-sm">{title}</h4>
