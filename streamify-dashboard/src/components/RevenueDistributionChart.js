@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { PieChart, Pie, Tooltip, Cell, ResponsiveContainer } from "recharts";
-
-const data = [
-  { name: "Subscriptions", value: 700000 },
-  { name: "Ads", value: 550000 },
-];
 
 const colors = ["#0088FE", "#FFBB28"];
 
 const RevenueDistributionChart = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch("/api/revenue-distribution")
+      .then((response) => response.json())
+      .then((data) => setData(data));
+  }, []);
+
   return (
     <div className="bg-white shadow-md rounded-lg p-4 flex items-center">
       <ResponsiveContainer width="100%" height={400}>

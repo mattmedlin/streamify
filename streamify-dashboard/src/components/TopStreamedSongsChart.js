@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   BarChart,
   Bar,
@@ -8,15 +8,15 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-const data = [
-  { name: "Song 1", streams: 24000 },
-  { name: "Song 2", streams: 22100 },
-  { name: "Song 3", streams: 20000 },
-  { name: "Song 4", streams: 19800 },
-  { name: "Song 5", streams: 18000 },
-];
-
 const TopStreamedSongsChart = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch("/api/top-streamed-songs")
+      .then((response) => response.json())
+      .then((data) => setData(data));
+  }, []);
+
   return (
     <div className="bg-white shadow-md rounded-lg p-4 flex items-center">
       <ResponsiveContainer width="100%" height={400}>

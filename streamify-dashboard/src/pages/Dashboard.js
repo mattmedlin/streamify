@@ -4,6 +4,7 @@ import { FaUser, FaStream, FaDollarSign, FaMusic } from "react-icons/fa";
 import UserGrowthChart from "../components/UserGrowthChart";
 import RevenueDistributionChart from "../components/RevenueDistributionChart";
 import TopStreamedSongsChart from "../components/TopStreamedSongsChart";
+import StreamTable from "../components/StreamTable";
 
 const Dashboard = () => {
   const [metrics, setMetrics] = useState({});
@@ -57,19 +58,27 @@ const Dashboard = () => {
       </div>
 
       {/* Charts */}
-      <div className="mt-8">
-        <h3 className="text-xl font-bold mb-4">User Growth</h3>
-        <UserGrowthChart />
+      <div className="flex gap-1 w-full">
+        <div className="mt-8 w-1/3">
+          <h3 className="text-xl font-bold mb-4">User Growth</h3>
+          <UserGrowthChart />
+        </div>
+
+        <div className="mt-8 w-1/3">
+          <h3 className="text-xl font-bold mb-4">Revenue Distribution</h3>
+          <RevenueDistributionChart />
+        </div>
+
+        <div className="mt-8 w-1/3">
+          <h3 className="text-xl font-bold mb-4">Top 5 Streamed Songs</h3>
+          <TopStreamedSongsChart />
+        </div>
       </div>
 
+      {/* Streams */}
       <div className="mt-8">
-        <h3 className="text-xl font-bold mb-4">Revenue Distribution</h3>
-        <RevenueDistributionChart />
-      </div>
-
-      <div className="mt-8">
-        <h3 className="text-xl font-bold mb-4">Top 5 Streamed Songs</h3>
-        <TopStreamedSongsChart />
+        <h3 className="text-xl font-bold mb-4">Recent Streams</h3>
+        <StreamTable />
       </div>
     </div>
   );
