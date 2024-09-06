@@ -1,10 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import MetricCard from "../components/MetricCard";
 import { FaUser, FaStream, FaDollarSign, FaMusic } from "react-icons/fa";
-import UserGrowthChart from "../components/UserGrowthChart";
-import RevenueDistributionChart from "../components/RevenueDistributionChart";
-import TopStreamedSongsChart from "../components/TopStreamedSongsChart";
-import StreamTable from "../components/StreamTable";
+import Spinner from "../components/Spinner";
+
+const StreamTable = React.lazy(() => import("../components/StreamTable"));
+
+const UserGrowthChart = React.lazy(() =>
+  import("../components/UserGrowthChart")
+);
+const RevenueDistributionChart = React.lazy(() =>
+  import("../components/RevenueDistributionChart")
+);
+const TopStreamedSongsChart = React.lazy(() =>
+  import("../components/TopStreamedSongsChart")
+);
 
 const Dashboard = () => {
   const [metrics, setMetrics] = useState({});
@@ -63,12 +72,16 @@ const Dashboard = () => {
             User Growth{" "}
             <h4 className="text-gray-500 font-normal text-sm pt-1">(year)</h4>
           </h3>
-          <UserGrowthChart />
+          <Suspense fallback={<Spinner />}>
+            <UserGrowthChart />
+          </Suspense>
         </div>
 
         <div className="mt-8 w-1/3">
           <h3 className="text-xl font-bold mb-4">Revenue Distribution</h3>
-          <RevenueDistributionChart />
+          <Suspense fallback={<Spinner />}>
+            <RevenueDistributionChart />
+          </Suspense>
         </div>
 
         <div className="mt-8 w-1/3">
@@ -78,14 +91,18 @@ const Dashboard = () => {
               (30 days)
             </h4>
           </h3>
-          <TopStreamedSongsChart />
+          <Suspense fallback={<Spinner />}>
+            <TopStreamedSongsChart />
+          </Suspense>
         </div>
       </div>
 
       {/* Streams */}
       <div className="mt-8">
         <h3 className="text-xl font-bold mb-4">Recent Streams</h3>
-        <StreamTable />
+        <Suspense fallback={<Spinner />}>
+          <StreamTable />
+        </Suspense>
       </div>
     </div>
   );
