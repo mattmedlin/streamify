@@ -52,6 +52,55 @@ export function makeServer() {
             streamCount: 560,
             userId: "user789",
           },
+          {
+            songName: "Dragonborn",
+            artist: "Jeremy Soule",
+            dateStreamed: "2024-09-06",
+            streamCount: 620,
+            userId: "user321",
+          },
+          {
+            songName: "Far Horizons",
+            artist: "Jeremy Soule",
+            dateStreamed: "2024-09-07",
+            streamCount: 580,
+            userId: "user654",
+          },
+          {
+            songName: "Baba Yetu",
+            artist: "Christopher Tin",
+            dateStreamed: "2024-09-08",
+            streamCount: 720,
+            userId: "user987",
+          },
+          {
+            songName: "Invincible",
+            artist: "Two Steps From Hell",
+            dateStreamed: "2024-09-09",
+            streamCount: 810,
+            userId: "user852",
+          },
+          {
+            songName: "Protectors of the Earth",
+            artist: "Two Steps From Hell",
+            dateStreamed: "2024-09-10",
+            streamCount: 690,
+            userId: "user741",
+          },
+          {
+            songName: "Journey to the Line",
+            artist: "Hans Zimmer",
+            dateStreamed: "2024-09-11",
+            streamCount: 760,
+            userId: "user963",
+          },
+          {
+            songName: "Time",
+            artist: "Hans Zimmer",
+            dateStreamed: "2024-09-12",
+            streamCount: 820,
+            userId: "user159",
+          },
         ];
       });
 
