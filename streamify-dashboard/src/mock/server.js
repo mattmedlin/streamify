@@ -11,43 +11,43 @@ export function makeServer() {
           activeUsers: 75000,
           totalStreams: 500000,
           revenue: 1250000,
-          topArtist: "Artist Name",
+          topArtist: "Nobuo Uematsu",
         };
       });
 
       this.get("/streams", () => {
         return [
           {
-            songName: "Song 1",
-            artist: "Artist 1",
+            songName: "One-Winged Angel",
+            artist: "Nobuo Uematsu",
             dateStreamed: "2024-09-01",
             streamCount: 500,
             userId: "user123",
           },
           {
-            songName: "Song 2",
-            artist: "Artist 2",
+            songName: "Aerith's Theme",
+            artist: "Nobuo Uematsu",
             dateStreamed: "2024-09-02",
             streamCount: 600,
             userId: "user456",
           },
           {
-            songName: "Song 3",
-            artist: "Artist 3",
+            songName: "To Zanarkand",
+            artist: "Nobuo Uematsu",
             dateStreamed: "2024-09-03",
             streamCount: 700,
             userId: "user789",
           },
           {
-            songName: "Song 4",
-            artist: "Artist 4",
+            songName: "Eyes on Me",
+            artist: "Nobuo Uematsu",
             dateStreamed: "2024-09-04",
             streamCount: 500,
             userId: "user789",
           },
           {
-            songName: "Song 5",
-            artist: "Artist 5",
+            songName: "Terra's Theme",
+            artist: "Nobuo Uematsu",
             dateStreamed: "2024-09-05",
             streamCount: 560,
             userId: "user789",
@@ -57,18 +57,18 @@ export function makeServer() {
 
       this.get("/user-growth", () => {
         return [
-          { month: "January", totalUsers: 50000, activeUsers: 35000 },
-          { month: "February", totalUsers: 60000, activeUsers: 45000 },
-          { month: "March", totalUsers: 63000, activeUsers: 47000 },
-          { month: "April", totalUsers: 64000, activeUsers: 49000 },
+          { month: "Jan", totalUsers: 50000, activeUsers: 35000 },
+          { month: "Feb", totalUsers: 60000, activeUsers: 45000 },
+          { month: "Mar", totalUsers: 63000, activeUsers: 47000 },
+          { month: "Apr", totalUsers: 64000, activeUsers: 49000 },
           { month: "May", totalUsers: 68000, activeUsers: 60000 },
-          { month: "June", totalUsers: 71000, activeUsers: 62000 },
-          { month: "July", totalUsers: 73000, activeUsers: 65000 },
-          { month: "August", totalUsers: 75000, activeUsers: 68000 },
-          { month: "September", totalUsers: 80000, activeUsers: 72000 },
-          { month: "October", totalUsers: 82000, activeUsers: 75000 },
-          { month: "November", totalUsers: 85000, activeUsers: 77000 },
-          { month: "December", totalUsers: 88000, activeUsers: 82000 },
+          { month: "Jun", totalUsers: 71000, activeUsers: 62000 },
+          { month: "Jul", totalUsers: 73000, activeUsers: 65000 },
+          { month: "Aug", totalUsers: 75000, activeUsers: 68000 },
+          { month: "Sept", totalUsers: 80000, activeUsers: 72000 },
+          { month: "Oct", totalUsers: 82000, activeUsers: 75000 },
+          { month: "Nov", totalUsers: 85000, activeUsers: 77000 },
+          { month: "Dec", totalUsers: 88000, activeUsers: 82000 },
         ];
       });
 
@@ -81,11 +81,11 @@ export function makeServer() {
 
       this.get("/top-streamed-songs", () => {
         return [
-          { name: "Song 1", streams: 24000 },
-          { name: "Song 2", streams: 22100 },
-          { name: "Song 3", streams: 20000 },
-          { name: "Song 4", streams: 19800 },
-          { name: "Song 5", streams: 18000 },
+          { name: "One-Winged Angel", artist: "Nobuo Uematsu", streams: 24000 },
+          { name: "Aerith's Theme", artist: "Nobuo Uematsu", streams: 22100 },
+          { name: "To Zanarkand", artist: "Nobuo Uematsu", streams: 20000 },
+          { name: "Eyes on Me", artist: "Nobuo Uematsu", streams: 19800 },
+          { name: "Terra's Theme", artist: "Nobuo Uematsu", streams: 18000 },
         ];
       });
     },

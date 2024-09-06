@@ -8,6 +8,24 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
+const truncate = (str, maxLength) => {
+  return str.length > maxLength ? str.substring(0, maxLength) + "..." : str;
+};
+
+const CustomTooltip = ({ active, payload }) => {
+  if (active && payload && payload.length) {
+    const { name, artist, streams } = payload[0].payload;
+    return (
+      <div className="bg-white p-2 border rounded shadow-sm">
+        <p className="label">{`${name} by ${artist}`}</p>
+        <p className="intro">{`Streams: ${streams}`}</p>
+      </div>
+    );
+  }
+
+  return null;
+};
+
 const TopStreamedSongsChart = () => {
   const [data, setData] = useState([]);
 
@@ -21,9 +39,12 @@ const TopStreamedSongsChart = () => {
     <div className="bg-white shadow-md rounded-lg p-4 flex items-center">
       <ResponsiveContainer width="100%" height={400}>
         <BarChart data={data}>
-          <XAxis dataKey="name" />
+          <XAxis
+            dataKey="name"
+            tickFormatter={(name) => truncate(name, 10)} // Truncate for x-axis
+          />
           <YAxis />
-          <Tooltip />
+          <Tooltip content={<CustomTooltip />} />
           <Bar dataKey="streams" fill="#8884d8" />
         </BarChart>
       </ResponsiveContainer>
