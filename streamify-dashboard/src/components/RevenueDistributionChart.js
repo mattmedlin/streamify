@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { PieChart, Pie, Tooltip, Cell, ResponsiveContainer } from "recharts";
+import {
+  PieChart,
+  Pie,
+  Tooltip,
+  Cell,
+  ResponsiveContainer,
+  Legend,
+} from "recharts";
 
 const colors = ["#0088FE", "#FFBB28"];
 
@@ -11,6 +18,25 @@ const RevenueDistributionChart = () => {
       .then((response) => response.json())
       .then((data) => setData(data));
   }, []);
+
+  const renderLabel = (entry) => {
+    const total = data.reduce((acc, item) => acc + item.value, 0);
+    const percentage = ((entry.value / total) * 100).toFixed(2);
+    return `${percentage}%`;
+  };
+
+  const CustomTooltip = ({ active, payload }) => {
+    if (active && payload && payload.length) {
+      const { name, value } = payload[0];
+      return (
+        <div className="bg-white p-2 border rounded shadow-sm">
+          <p className="label">{`${name}: $${value}`}</p>
+        </div>
+      );
+    }
+
+    return null;
+  };
 
   return (
     <div className="bg-white shadow-md rounded-lg p-4 flex items-center">
@@ -24,6 +50,7 @@ const RevenueDistributionChart = () => {
             cy="50%"
             outerRadius={100}
             fill="#8884d8"
+            label={renderLabel}
           >
             {data.map((entry, index) => (
               <Cell
@@ -32,7 +59,8 @@ const RevenueDistributionChart = () => {
               />
             ))}
           </Pie>
-          <Tooltip />
+          <Tooltip content={<CustomTooltip />} />
+          <Legend verticalAlign="bottom" height={36} />
         </PieChart>
       </ResponsiveContainer>
     </div>
