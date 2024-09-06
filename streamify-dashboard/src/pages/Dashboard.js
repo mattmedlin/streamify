@@ -50,7 +50,7 @@ const Dashboard = () => {
         </div>
         <div className="w-full sm:w-1/2 lg:w-1/3 p-2">
           <MetricCard
-            title="Top Artist"
+            title="Top Artist (30 days)"
             value={metrics.topArtist}
             icon={<FaMusic size={30} />}
           />
@@ -60,7 +60,10 @@ const Dashboard = () => {
       {/* Charts */}
       <div className="flex gap-1 w-full">
         <div className="mt-8 w-1/3">
-          <h3 className="text-xl font-bold mb-4">User Growth</h3>
+          <h3 className="text-xl font-bold mb-4 flex gap-2">
+            User Growth{" "}
+            <h4 className="text-gray-500 font-normal text-sm pt-1">(year)</h4>
+          </h3>
           <UserGrowthChart />
         </div>
 
@@ -70,7 +73,12 @@ const Dashboard = () => {
         </div>
 
         <div className="mt-8 w-1/3">
-          <h3 className="text-xl font-bold mb-4">Top 5 Streamed Songs</h3>
+          <h3 className="text-xl font-bold mb-4 flex gap-2">
+            Top 5 Streamed Songs{" "}
+            <h4 className="text-gray-500 font-normal text-sm pt-1">
+              (30 days)
+            </h4>
+          </h3>
           <TopStreamedSongsChart />
         </div>
       </div>
